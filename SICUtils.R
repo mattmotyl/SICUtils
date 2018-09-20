@@ -27,7 +27,8 @@ numbify<-function(colsn){
   # Replace those as NA
   colsn.r <- lapply(colsn, function(x) replace(x, grep("Not met", x), NA))
   colsn.r <- lapply(colsn, function(x) replace(x, grep("Prefer not to say", x), NA))                  
-  colsn.r <- lapply(colsn, function(x) replace(x, grep("(not asked)", x), NA))                  
+  colsn.r <- lapply(colsn, function(x) replace(x, grep("(not asked)", x), NA))  
+  colsn.r <- lapply(colsn, function(x) replace(x, grep("NA", x), NA))                      
   colsn.d <- as.data.frame(lapply(colsn.r, function(x) factor(x)))
   colnum <- ncol(colsn)
   colsn.d[,1:colnum] <- sapply(colsn.d[,1:colnum], as.numeric)
