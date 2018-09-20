@@ -25,8 +25,8 @@ numbify<-function(colsn){
   colsn.r <- lapply(colsn, function(x) replace(x, grep("[-]", x), NA))
   # Responses for respondents not yet eligible to complete certain questions are stored as "Not met"
   # Replace those as NA
-  colsn.r <- lapply(colsn, function(x) replace(x, grep("Not met"), x), NA))
-  colsn.r <- lapply(colsn, function(x) replace(x, grep("Prefer not to say"), x), NA))                  
+  colsn.r <- lapply(colsn, function(x) replace(x, grep("Not met", x), NA))
+  colsn.r <- lapply(colsn, function(x) replace(x, grep("Prefer not to say", x), NA))                  
   colsn.r <- lapply(colsn, function(x) replace(x, grep("(not asked)", x), NA))                  
   colsn.d <- as.data.frame(lapply(colsn.r, function(x) factor(x)))
   colnum <- ncol(colsn)
